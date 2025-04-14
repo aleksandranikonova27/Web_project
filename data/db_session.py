@@ -3,7 +3,7 @@ import sqlalchemy.orm as orm
 from sqlalchemy.orm import Session
 import sqlalchemy.ext.declarative as dec
 
-SqlAlchemyBase = dec.declarative_base()
+SqlAlchemyBase = sa.orm.declarative_base()
 
 __factory = None
 
@@ -20,6 +20,7 @@ def global_init(db_file):
     print(f"Подключение к базе данных по адресу {conn_str}")
 
     engine = sa.create_engine(conn_str, echo=False)
+    SqlAlchemyBase.metadata.create_all(engine)
     __factory = orm.sessionmaker(bind=engine)
 
     from . import __all_models
