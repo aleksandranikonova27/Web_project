@@ -18,7 +18,7 @@ class Order(SqlAlchemyBase, UserMixin):
     need_date = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     city = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     count_of_people = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
-    type_of_events = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("event.id"))
+    type_of_events = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("type_of_events.id"))
     event = orm.relationship('TypeOfEvents')
     def __repr__(self):
         return f'{self.name} - {self.phone_number} - {self.created_date}'

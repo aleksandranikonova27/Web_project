@@ -44,13 +44,15 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </header>
-<button id="order">Оставить заявку</button>
+<div class="d-flex" id="order">
+            <a class="btn btn-success mx-1" href="/order">Оставить заявку</a>
+        </div>
 
-    <script>
-        document.getElementById('order').addEventListener('click', function() {
-            alert('Спасибо! Обязательно свяжусь с Вами в ближайшее время');
-        });
-    </script>
+<script>
+    document.getElementById('order').addEventListener('click', function() {
+        alert('Спасибо! Обязательно свяжусь с Вами в ближайшее время');
+    });
+</script>
 <!-- Begin page content -->
 <main role="main" class="container">
     {% block content %}{% endblock %}

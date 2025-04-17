@@ -17,7 +17,7 @@ class Admin(SqlAlchemyBase, UserMixin):
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     created_date = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.datetime.now)
     stutus = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)
-    posts = orm.relationship("Media", back_populates='admin')
+    posts = orm.relationship("Media", back_populates='admins')
 
     def __repr__(self):
         return f'{self.name} - {self.email} - {self.created_date}'
