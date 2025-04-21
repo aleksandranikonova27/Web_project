@@ -1,5 +1,3 @@
-# Класс с описанием таблицы мероприятий
-
 import sqlalchemy
 from .db_session import SqlAlchemyBase
 
@@ -9,4 +7,3 @@ class TypeOfEvents(SqlAlchemyBase):
     id = sqlalchemy.Column(sqlalchemy.Integer,
                            primary_key=True, autoincrement=True)
     events = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-
