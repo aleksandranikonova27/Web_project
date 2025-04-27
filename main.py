@@ -15,6 +15,7 @@ app.config['SECRET_KEY'] = '7bafb7a4fc07dnn5848ii753118eco64eda'
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+
 @login_manager.user_loader
 def load_user(user_id):
     db_sess = db_session.create_session()
@@ -31,7 +32,7 @@ def index():
 @app.route('/order')
 def order():
     # form = order_form.OrderForm()
-    return render_template('order.html', title='Регистрация')
+    return render_template('order.html', title='Заявка на мероприятие')
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -44,7 +45,7 @@ def reqister():
         if db_sess.query(Admin).filter(Admin.email == form.email.data).first():
             return render_template('register.html', title='Регистрация', form=form,
                                    message="Такой пользователь уже есть")
-        admin = Admin(name=form.name.data, email=form.email.data)
+        admin = Admin(name=form.name.data, email=form.email.data, stutus=1)
         admin.set_password(form.password.data)
         db_sess.add(admin)
         db_sess.commit()
